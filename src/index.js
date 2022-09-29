@@ -1,13 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import '@fortawesome/fontawesome-free/css/all.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
+import AuthContextProvider from './contexts/AuthContext';
+import LoadingContextProvider from './contexts/LoadingContext';
+import ModalContextProvider from './contexts/ModalContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <LoadingContextProvider>
+        <ModalContextProvider>
+          <AuthContextProvider>
+            <App />
+          </AuthContextProvider>
+        </ModalContextProvider>
+      </LoadingContextProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

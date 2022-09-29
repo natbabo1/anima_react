@@ -1,0 +1,35 @@
+$dark-gray: #1e1e1e;
+$medium-gray: #3d3d3d;
+$light-gray: #525252;
+$shadow-grow: #302d28;
+$anima-green: #06c149;
+$anima-lime: #08e355;
+$snow-white: #dee2e6;
+$low-white: #adb5bd;
+
+$component-active-bg: $anima-green;
+$component-active-color: $medium-gray;
+
+$secondary: $medium-gray;
+$success: $anima-green;
+$dark: $dark-gray;
+
+$body-bg: $light-gray;
+$body-color: $snow-white;
+$input-border-color: $medium-gray;
+$input-focus-border-color: $medium-gray;
+$form-label-color: $low-white;
+$input-group-addon-bg: $medium-gray;
+$input-group-addon-color: $low-white;
+
+$dropdown-dark-color: $snow-white;
+$dropdown-dark-bg: $dark-gray;
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px $light-gray inset !important;
+  box-shadow: 0 0 0 30px $light-gray inset !important;
+  -webkit-text-fill-color: white !important;
+}

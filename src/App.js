@@ -1,24 +1,38 @@
-import logo from './logo.svg';
+import Router from './router/Router';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 import './App.css';
+import { useLoading } from './contexts/LoadingContext';
+import Spinner from './components/ui/Spinner';
+import { useModal } from './contexts/ModalContext';
+import Modal from './components/ui/Modal';
+import LoginForm from './features/auth/LoginForm';
+import RegisterForm from './features/auth/RegisterForm';
 
 function App() {
+  const { isLoading } = useLoading();
+  const { openModal } = useModal();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {isLoading && <Spinner />}
+      <Modal>
+        {openModal === 'Login' && <LoginForm />}
+        {openModal === 'Register' && <RegisterForm />}
+      </Modal>
+      <Router />
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
+    </>
   );
 }
 
