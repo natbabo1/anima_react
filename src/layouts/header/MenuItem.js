@@ -3,19 +3,17 @@ import { Link, useLocation } from 'react-router-dom';
 function MenuItem({ menu, isLink = true, to, active = false }) {
   const { pathname } = useLocation();
   return (
-    <div className={'nav-item'}>
-      {isLink ? (
-        <Link
-          to={to}
-          className={`nav-link ${pathname === to ? 'active' : null}`}
-        >
-          {menu}
-        </Link>
-      ) : (
-        <a className={`nav-link ${pathname === to && 'active'}`} href={to}>
-          {menu}
-        </a>
-      )}
+    <div className="text-low-white hover:text-snow-white">
+      <Link
+        to={to}
+        className={`${
+          pathname === to
+            ? 'text-snow-white border-b border-anima-green font-medium'
+            : null
+        }`}
+      >
+        {menu}
+      </Link>
     </div>
   );
 }

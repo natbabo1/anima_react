@@ -15,6 +15,7 @@ function App() {
   return (
     <>
       {isLoading && <Spinner />}
+
       <Modal>
         {openModal === 'Login' && <LoginForm />}
         {openModal === 'Register' && <RegisterForm />}

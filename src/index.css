@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  box-shadow: 0 0 0 30px #525252 inset !important;
+  -webkit-box-shadow: 0 0 0 30px #525252 inset !important;
+  -webkit-text-fill-color: white !important;
+}
+
+::-webkit-scrollbar {
+  width: 0.45rem;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(27, 27, 27, 0.4);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dropdown-user-triangle {
+  height: 0;
+  width: 0;
+
+  border-top: none;
+  border-bottom: 8px solid #06c149;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+}

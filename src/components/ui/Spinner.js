@@ -1,12 +1,10 @@
 function Spinner() {
   return (
     <div
-      className="d-flex flex-column justify-content-center align-items-center gap-3 offcanvas-backdrop show"
+      className="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-40 w-full md:inset-0 h-modal md:h-full flex justify-center items-center bg-black/80"
       style={{ zIndex: 1056 }}
     >
-      <div className="spinner-border text-success" role="status">
-        <span className="visually-hidden">Loading...</span>
-      </div>
+      <div className="border-4 border-anima-green/80 w-14 h-14 rounded-full z-50 animate-spin border-l-transparent"></div>
     </div>
   );
 }

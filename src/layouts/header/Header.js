@@ -10,16 +10,16 @@ function Header() {
   return (
     <>
       <nav
-        className="navbar navbar-expand-sm navbar-dark bg-dark px-5 fixed-top"
+        className="w-full bg-dark-gray text-snow-white px-16 py-3"
         tabIndex="-1"
       >
-        <div className="container-fluid">
+        <div className="w-full flex text-lg items-center gap-x-7">
           <Logo />
           <MenuContainer />
           {user ? <DropdownToggle /> : <AuthBotton />}
         </div>
       </nav>
-      <div className="outlet">
+      <div className="w-full h-">
         <Outlet />
       </div>
     </>

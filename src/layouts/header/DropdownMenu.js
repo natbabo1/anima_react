@@ -9,21 +9,21 @@ function DropdownMenu() {
   } = useAuth();
 
   return (
-    <>
+    <div className="flex flex-col absolute left-1/2 top-full -translate-x-1/2 w-48">
       <div
-        className="dropdown-user-triangle mx-auto position-absolute start-50 translate-middle-x"
+        className="dropdown-user-triangle mx-auto"
         style={{ zIndex: 1020 }}
       ></div>
-      <div className="dropdown-menu dropdown-menu-dark pt-0 position-absolute top-8px start-50 translate-middle-x d-block ">
+      <div className="flex flex-col bg-dark-gray pt-0 px-0 border border-shadow-grow rounded-xl">
         <Link
-          className="dropdown-item py-3 user-dropdown-badge rounded-top"
+          className="py-3 px-2 bg-gradient-to-b from-anima-green rounded-top"
           to="/profile"
         >
-          <div className="d-flex justify-content-between text-low-white">
-            <Avatar size="55" />
+          <div className="flex justify-around items-center text-snow-white">
+            <Avatar size="50" />
             <div className="ms-3">
               {firstName} {lastName}
-              <small className="d-block">
+              <small className="block">
                 {Subscription
                   ? `Your ${Subscription.Tier.name} subsription will expire after ${Subscription.endDate}`
                   : 'No subscription'}
@@ -32,19 +32,28 @@ function DropdownMenu() {
           </div>
         </Link>
 
-        <Link className="dropdown-item py-2" to="/watch-later">
-          <i className="fa-regular fa-bookmark me-2"></i> Watch Later
+        <Link
+          className=" py-3 px-4 text-lg hover:text-white hover:bg-medium-gray"
+          to="/watch-later"
+        >
+          <i className="fa-regular fa-bookmark w-6"></i> Watch Later
         </Link>
 
-        <Link className="dropdown-item py-2" to="/favorites">
-          <i className="fa-regular fa-heart me-2"></i>Favorite
+        <Link
+          className=" py-3 px-4 text-lg hover:text-white hover:bg-medium-gray"
+          to="/favorites"
+        >
+          <i className="fa-regular fa-heart w-6"></i> Favorite
         </Link>
 
-        <button className="dropdown-item  py-2" onClick={logout}>
-          <i className="fa-solid fa-right-from-bracket me-2"></i>Log out
+        <button
+          className="py-3 px-4 text-lg text-left hover:text-white hover:bg-medium-gray"
+          onClick={logout}
+        >
+          <i className="fa-solid fa-right-from-bracket w-6"></i>Log out
         </button>
       </div>
-    </>
+    </div>
   );
 }
 

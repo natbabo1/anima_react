@@ -31,42 +31,48 @@ function LoginForm() {
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <div className="form-floating mb-3">
+    <form className="w-full mx-auto" onSubmit={onSubmit}>
+      <div className="relative mb-3">
         <input
           type="text"
-          className="form-control rounded-md"
+          className="rounded-md px-3 bg-medium-gray border-none focus:outline focus:outline-anima-green/80 caret-anima-green focus:border-none w-full appearance-none peer pt-5 text-low-white focus:ring-transparent"
           id="username"
-          placeholder="Username"
+          placeholder=" "
           name="username"
           value={input.username}
           onChange={handleChangeInput}
         />
-        <label htmlFor="username" className="form-label">
+        <label
+          htmlFor="username"
+          className="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-anima-green peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
+        >
           Username
         </label>
       </div>
-      <div className="form-floating mb-3">
+      <div className="relative mb-3">
         <input
           type="password"
-          className="form-control rounded-md"
-          placeholder="Password"
+          className="rounded-md px-3 bg-medium-gray border-none focus:outline focus:outline-anima-green/80 caret-anima-green focus:border-none w-full appearance-none peer pt-5 text-low-white focus:ring-transparent"
+          placeholder=" "
           id="password"
           name="password"
           value={input.password}
           onChange={handleChangeInput}
         />
-        <label htmlFor="password" className="form-label">
+        <label
+          htmlFor="password"
+          className="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-anima-green peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
+        >
           Password
         </label>
       </div>
-      <div className="mb-2 d-grid">
-        <button className="btn btn-outline-success fw-bold rounded-md h-12 text-4.5">
+      <div className="mt-8">
+        <button className="w-full h-10 rounded-md border-2 border-anima-green py-1 px-3 text-anima-green font-medium hover:bg-anima-green hover:text-white active:bg-anima-lime">
           Log In
         </button>
       </div>
-      <div className="mb-2 d-grid">
-        <button className="btn btn-success fw-bold rounded-md h-12 text-4.5">
+      <div className="mt-3">
+        <button className="w-full h-10 rounded-md border-2 border-anima-green py-1 px-3 text-white font-medium bg-anima-green hover:bg-anima-lime hover:text-medium-gray active:bg-anima-lime">
           Register
         </button>
       </div>

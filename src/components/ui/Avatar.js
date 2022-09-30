@@ -3,7 +3,7 @@ function Avatar({ src, size }) {
   return (
     <img
       src={src || profileImage}
-      className="rounded-circle cursor-pointer"
+      className="rounded-full cursor-pointer"
       width={size || 50}
       height={size || 50}
       alt="user"

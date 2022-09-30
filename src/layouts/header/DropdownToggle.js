@@ -18,9 +18,9 @@ function DropdownToggle() {
   }, []);
 
   return (
-    <div className="dropdown" ref={dropdownEl}>
+    <div className="flex align-middle relative w-fit" ref={dropdownEl}>
       <button
-        className="btn btn-dark mx-4 my-0 py-0"
+        className="mx-4 my-0 py-0"
         onClick={() => setIsOpenDropdown((prev) => !prev)}
       >
         <Avatar size="40" />
