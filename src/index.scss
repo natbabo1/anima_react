@@ -1,6 +1,17 @@
 @import './css/config';
 @import 'bootstrap/scss/bootstrap';
 
+::-webkit-scrollbar {
+  width: 0.45rem;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(27, 27, 27, 0.4);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
 .outlet {
   margin-top: 56px;
   min-height: 100vh;
@@ -21,6 +32,10 @@
   top: calc(100% + 7px);
 }
 
+.-top-40px {
+  top: -40px;
+}
+
 .user-dropdown-badge {
   background: linear-gradient(
     0deg,
@@ -32,4 +47,58 @@
 .text-low-white {
   color: $low-white;
   font-weight: 600;
+}
+
+.highlight-bg {
+  width: 100%;
+  height: calc(100vh - 58px);
+  background-size: cover;
+}
+
+.bg-dark-gradient {
+  background: linear-gradient(
+    180deg,
+    rgba(30, 30, 30, 0) 0%,
+    rgba(30, 30, 30, 1) 80%
+  );
+}
+
+.play-button {
+  border: $success 5px solid;
+  border-right-color: $secondary !important;
+  border-radius: 50%;
+  transform: rotate(-45deg);
+}
+
+.play-button:hover {
+  animation-timing-function: cubic-bezier(0.41, 1.05, 0.65, 0.88);
+  animation: play-button-rotate 700ms;
+}
+
+.play-button-inner {
+  background-color: $success;
+  color: $secondary;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+}
+
+.play-icon {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+}
+
+@keyframes play-button-rotate {
+  from {
+    transform: rotate(-45deg);
+  }
+  to {
+    transform: rotate(315deg);
+  }
 }

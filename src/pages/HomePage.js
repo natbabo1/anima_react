@@ -1,5 +1,7 @@
+import Highlight from '../features/highlight/Highlight';
+
 function HomePage() {
-  return <h1 className="fs-1">This is Homepage</h1>;
+  return <Highlight />;
 }
 
 export default HomePage;

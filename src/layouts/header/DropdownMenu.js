@@ -33,11 +33,11 @@ function DropdownMenu() {
         </Link>
 
         <Link className="dropdown-item py-2" to="/watch-later">
-          <i class="fa-regular fa-bookmark me-2"></i> Watch Later
+          <i className="fa-regular fa-bookmark me-2"></i> Watch Later
         </Link>
 
         <Link className="dropdown-item py-2" to="/favorites">
-          <i class="fa-regular fa-heart me-2"></i>Favorite
+          <i className="fa-regular fa-heart me-2"></i>Favorite
         </Link>
 
         <button className="dropdown-item  py-2" onClick={logout}>
