@@ -31,3 +31,43 @@ input:-webkit-autofill:active {
   border-left: 12px solid transparent;
   border-right: 12px solid transparent;
 }
+
+.play-button {
+  border: #06c149 5px solid;
+  border-right-color: #1e1e1e !important;
+  border-radius: 50%;
+  transform: rotate(-45deg);
+}
+
+.play-button:hover {
+  animation-timing-function: cubic-bezier(0.41, 1.05, 0.65, 0.88);
+  animation: play-button-rotate 700ms;
+}
+
+.play-button-inner {
+  background-color: #06c149;
+  color: #1e1e1e;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+}
+
+.play-icon {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+}
+
+@keyframes play-button-rotate {
+  from {
+    transform: rotate(-45deg);
+  }
+  to {
+    transform: rotate(315deg);
+  }
+}

@@ -1,11 +1,11 @@
 function HighlightPlayButton() {
   return (
-    <div className="position-relative " style={{ width: 'fit-content' }}>
-      <div className="play-button-inner fs-2 text-secondary"></div>
+    <div className="relative w-fit bg-dark-gray/40 rounded-full shadow-2xl hover:scale-110 duration-500">
+      <div className="play-button-inner fs-2"></div>
       <div className="play-icon">
-        <i className="fa-solid fa-play text-secondary"></i>
+        <i className="fa-solid fa-play text-dark-gray"></i>
       </div>
-      <div className="play-button" style={{ width: 150, height: 150 }}></div>
+      <div className="play-button w-40 h-40"></div>
     </div>
   );
 }

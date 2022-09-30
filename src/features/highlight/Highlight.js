@@ -5,7 +5,7 @@ function Highlight() {
   return (
     <>
       <HightlightMain />
-      <HighlightEpisode />
+      {/* <HighlightEpisode /> */}
     </>
   );
 }
