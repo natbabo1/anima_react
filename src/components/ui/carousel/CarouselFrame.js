@@ -1,23 +1,23 @@
 import { useState } from 'react';
-import CorouselSlide from './CarouselSlide';
+import CarouselSlide from './CarouselSlide';
 
 function CarouselFrame({ content, perPage }) {
   const [page, setPage] = useState(0);
 
   return (
-    <div className="h-full bg-transparent w-full relative px-14 overflow-hidden">
-      <div className="flex flex-nowrap items-center h-full">
-        <CorouselSlide
+    <div className="h-full bg-transparent w-full relative px-14 ">
+      <div className="flex flex-nowrap items-start h-full">
+        <CarouselSlide
           page={page}
           pageNo={0}
           content={content.slice(perPage * 0, perPage)}
         />
-        <CorouselSlide
+        <CarouselSlide
           page={page}
           pageNo={1}
           content={content.slice(perPage * 1, perPage * 2)}
         />
-        <CorouselSlide
+        <CarouselSlide
           page={page}
           pageNo={2}
           content={content.slice(perPage * 2, perPage * 3)}

@@ -8,6 +8,8 @@ function Highlight() {
       <HightlightMain />
       <HighlightEpisode />
       <AnimeList title="Popular" />
+      <AnimeList title="This Season" />
+      <AnimeList title="Movies" />
     </>
   );
 }

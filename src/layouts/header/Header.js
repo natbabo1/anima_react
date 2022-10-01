@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import AuthBotton from '../../features/auth/AuthBotton';
+import Footer from '../footer/Footer';
 import DropdownToggle from './DropdownToggle';
 import Logo from './Logo';
 import MenuContainer from './MenuContainer';
@@ -22,6 +23,7 @@ function Header() {
       <div className="w-full">
         <Outlet />
       </div>
+      <Footer />
     </>
   );
 }
