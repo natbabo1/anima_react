@@ -3,11 +3,11 @@ import HighlightPlayButton from '../../components/ui/HighlightPlayButton';
 
 function HightlightMain() {
   return (
-    <div className="w-full px-0 relative pt-[56.25%] overflow-hidden">
-      <img src={highlighBg} className="absolute top-0 left-0 w-auto h-full " />
+    <div className="w-full px-0 relative pt-[46.25%] overflow-hidden">
+      <img src={highlighBg} className="absolute top-0 left-0 w-full h-auto " />
       <div className="absolute top-0 left-0 w-full h-full flex bg-gradient-to-l from-black">
         <div className="w-1/2 h-full relative">
-          <div className="absolute bottom-[33%] left-[10%] cursor-pointer">
+          <div className="absolute bottom-[15%] left-[10%] cursor-pointer">
             <HighlightPlayButton />
           </div>
         </div>
