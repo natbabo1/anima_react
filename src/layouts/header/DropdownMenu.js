@@ -16,7 +16,7 @@ function DropdownMenu() {
       ></div>
       <div className="flex flex-col bg-dark-gray pt-0 px-0 border border-shadow-grow rounded-xl">
         <Link
-          className="py-3 px-2 bg-gradient-to-b from-anima-green rounded-top"
+          className="py-3 px-2 bg-gradient-to-b from-anima-green rounded-t-md"
           to="/profile"
         >
           <div className="flex justify-around items-center text-snow-white">

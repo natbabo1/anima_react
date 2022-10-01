@@ -35,7 +35,7 @@ function LoginForm() {
       <div className="relative mb-3">
         <input
           type="text"
-          className="rounded-md px-3 bg-medium-gray border-none focus:outline focus:outline-anima-green/80 caret-anima-green focus:border-none w-full appearance-none peer pt-5 text-low-white focus:ring-transparent"
+          className="input-form peer"
           id="username"
           placeholder=" "
           name="username"
@@ -44,7 +44,7 @@ function LoginForm() {
         />
         <label
           htmlFor="username"
-          className="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-anima-green peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
+          className="floating-label peer-focus:text-anima-green peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
         >
           Username
         </label>
@@ -52,7 +52,7 @@ function LoginForm() {
       <div className="relative mb-3">
         <input
           type="password"
-          className="rounded-md px-3 bg-medium-gray border-none focus:outline focus:outline-anima-green/80 caret-anima-green focus:border-none w-full appearance-none peer pt-5 text-low-white focus:ring-transparent"
+          className="input-form peer"
           placeholder=" "
           id="password"
           name="password"
@@ -61,7 +61,7 @@ function LoginForm() {
         />
         <label
           htmlFor="password"
-          className="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-anima-green peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
+          className="floating-label peer-focus:text-anima-green peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
         >
           Password
         </label>

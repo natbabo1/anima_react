@@ -1,8 +1,8 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import axios from '../config/axios';
-import { addToken, getToken, removeToken } from '../utilities/localStorage';
 import { useLoading } from './LoadingContext';
+import * as authService from '../api/authApi';
+import { addToken, getToken, removeToken } from '../utilities/localStorage';
 
 const AuthContext = createContext();
 
@@ -16,7 +16,7 @@ function AuthContextProvider({ children }) {
       try {
         if (getToken()) {
           startLoading();
-          await updateUser();
+          await getThisUser();
         }
       } catch (err) {
         toast.error(err.response.data.message);
@@ -28,21 +28,21 @@ function AuthContextProvider({ children }) {
     loadUser();
   }, [startLoading, stopLoading]);
 
-  const updateUser = async () => {
-    const res = await axios.get('/auth/getMe');
+  const getThisUser = async () => {
+    const res = await authService.getThisUser();
     setUser(res.data.user);
   };
 
   const register = async (input) => {
-    const res = await axios.post('/auth/register', input);
+    const res = await authService.register(input);
     addToken(res.data.token);
-    updateUser();
+    getThisUser();
   };
 
   const login = async (input) => {
-    const res = await axios.post('auth/login', input);
+    const res = await authService.login(input);
     addToken(res.data.token);
-    updateUser();
+    getThisUser();
   };
 
   const logout = () => {
