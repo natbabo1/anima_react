@@ -1,27 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
 import { useModal } from '../../contexts/ModalContext';
 function Modal({ children }) {
   const { openModal, closeModal } = useModal();
-  const modalEl = useRef();
-
-  const [modal, setModal] = useState(null);
-
-  useEffect(() => {
-    // const modalObj = new FbModal(modalEl, {
-    //   placement: 'bottom-right',
-    //   backdropClasses:
-    //     'bg-gray-900 bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-40',
-    //   onHide: () => {
-    //     console.log('modal is hidden');
-    //   },
-    //   onShow: () => {
-    //     console.log('modal is shown');
-    //   },
-    //   onToggle: () => {
-    //     console.log('modal has been toggled');
-    //   }
-    // });
-  }, []);
 
   return (
     <>
@@ -30,7 +9,6 @@ function Modal({ children }) {
           className="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full flex justify-center items-center bg-black/80"
           tabIndex={-1}
           onClick={closeModal}
-          ref={modalEl}
         >
           <div
             className="relative p-10 w-full max-w-xl h-full md:h-auto"
