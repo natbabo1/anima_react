@@ -24,7 +24,7 @@ function Modal({ children }) {
                   className="absolute right-4 top-1.5 translate-middle mt-1 mr-1"
                   onClick={closeModal}
                 >
-                  <i class="fa-solid fa-xmark text-low-white/70 text-3xl"></i>
+                  <i className="fa-solid fa-xmark text-low-white/70 text-3xl"></i>
                 </button>
               </div>
               <div className="w-full px-8">{children}</div>

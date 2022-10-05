@@ -17,6 +17,8 @@ module.exports = {
       emerald: colors.emerald,
       indigo: colors.indigo,
       yellow: colors.yellow,
+      zinc: colors.zinc,
+      stone: colors.stone,
       'dark-gray': '#1e1e1e',
       'medium-gray': '#3d3d3d',
       'light-gray': '#525252',

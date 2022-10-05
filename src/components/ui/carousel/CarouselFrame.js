@@ -4,24 +4,28 @@ import CarouselSlide from './CarouselSlide';
 function CarouselFrame({ content, perPage }) {
   const [page, setPage] = useState(0);
 
+  const maxPage = Math.ceil(content.length / perPage);
+  const divideContent = () => {
+    const result = [];
+
+    for (let i = 0; i < maxPage; i++) {
+      result.push(
+        <CarouselSlide
+          key={i}
+          page={page}
+          pageNo={i}
+          content={content.slice(perPage * i, perPage * (i + 1))}
+        />
+      );
+    }
+
+    return result;
+  };
+
   return (
     <div className="h-full bg-transparent w-full relative px-14 ">
-      <div className="flex flex-nowrap items-start h-full">
-        <CarouselSlide
-          page={page}
-          pageNo={0}
-          content={content.slice(perPage * 0, perPage)}
-        />
-        <CarouselSlide
-          page={page}
-          pageNo={1}
-          content={content.slice(perPage * 1, perPage * 2)}
-        />
-        <CarouselSlide
-          page={page}
-          pageNo={2}
-          content={content.slice(perPage * 2, perPage * 3)}
-        />
+      <div className="w-full overflow-x-hidden">
+        <div className="flex flex-nowrap items-start">{divideContent()}</div>
       </div>
       <button
         className="absolute top-0 left-0 z-30 px-4 flex justify-start items-center h-full cursor-pointer w-[5%] bg-gradient-to-r from-dark-gray"
@@ -33,7 +37,9 @@ function CarouselFrame({ content, perPage }) {
       <button
         className="absolute top-0 right-0 z-30 px-4 flex justify-end items-center h-full cursor-pointer w-[5%] bg-gradient-to-l from-dark-gray"
         type="button"
-        onClick={() => setPage((prev) => (prev === 2 ? prev : prev + 1))}
+        onClick={() =>
+          setPage((prev) => (prev < maxPage - 1 ? prev + 1 : prev))
+        }
       >
         <i className="fa-solid fa-chevron-right text-snow-white"></i>
       </button>

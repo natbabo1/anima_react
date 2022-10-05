@@ -3,10 +3,11 @@ import { createContext, useCallback, useContext, useState } from 'react';
 const LoadingContext = createContext();
 
 function LoadingContextProvider({ children }) {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const startLoading = useCallback(() => setIsLoading(true), []);
   const stopLoading = useCallback(() => setIsLoading(false), []);
+
   return (
     <LoadingContext.Provider value={{ isLoading, startLoading, stopLoading }}>
       {children}
