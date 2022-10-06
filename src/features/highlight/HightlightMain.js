@@ -1,9 +1,11 @@
 import { BASE_URL } from '../../config/constant';
 import HighlightPlayButton from '../../components/ui/HighlightPlayButton';
 import HighlightGenreBadge from '../../components/HighlightGenreBadge';
+import { Link } from 'react-router-dom';
 
 function HightlightMain({ highlight }) {
   const {
+    id,
     title,
     synopsis,
     highlightImagePath,
@@ -22,9 +24,12 @@ function HightlightMain({ highlight }) {
       />
       <div className="absolute top-0 left-0 w-full h-full flex bg-gradient-to-l from-black">
         <div className="w-1/2 h-full relative">
-          <div className="absolute bottom-[15%] left-[10%] cursor-pointer">
+          <Link
+            to={`animes/${id}/ep/1`}
+            className="absolute bottom-[15%] left-[10%] cursor-pointer"
+          >
             <HighlightPlayButton />
-          </div>
+          </Link>
         </div>
         <div className="w-1/2 pl-14 text-snow-white flex flex-col justify-center">
           <div className="text-6xl leading-[5rem] w-4/5">{title}</div>

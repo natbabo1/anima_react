@@ -15,7 +15,7 @@ function Router() {
         <Route path="/this-season" element={<ThisSeasonPage />} />
         <Route path="/movies" element={<MoviesPage />} />
         <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/anime/:animeId" element={<AnimePage />} />
+        <Route path="/animes/:animeId/ep/:epNumber" element={<AnimePage />} />
         <Route path="*" element={<NoPath />} />
       </Route>
     </Routes>

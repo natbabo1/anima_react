@@ -1,5 +1,7 @@
+import AnimeTheater from '../features/watchAnime/AnimeTheater';
+
 function AnimePage() {
-  return <div>AnimePage</div>;
+  return <AnimeTheater />;
 }
 
 export default AnimePage;
