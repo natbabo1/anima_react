@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -51,6 +59,26 @@ body {
 
 .floating-label {
   @apply absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5;
+}
+
+.button {
+  @apply h-10 rounded-md border-2 border-anima-green py-1 px-3 text-anima-green;
+}
+.button:hover {
+  @apply bg-anima-green text-white;
+}
+.button:active {
+  @apply bg-anima-lime;
+}
+
+.button-outline {
+  @apply h-10 rounded-md border-2 border-anima-green py-1 px-3 text-white bg-anima-green;
+}
+.button-outline:hover {
+  @apply bg-anima-lime text-medium-gray;
+}
+.button-outline:active {
+  @apply bg-anima-lime;
 }
 
 .dropdown-user-triangle {

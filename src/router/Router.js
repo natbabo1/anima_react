@@ -6,8 +6,11 @@ import MoviesPage from '../pages/MoviesPage';
 import ProfilePage from '../pages/ProfilePage';
 import NoPath from '../pages/NoPath';
 import AnimePage from '../pages/AnimePage';
+import ManagerPage from '../pages/manager/ManagerPage';
+import { useAuth } from '../contexts/AuthContext';
 
 function Router() {
+  const { user } = useAuth();
   return (
     <Routes>
       <Route path="/" element={<Header />}>
@@ -16,6 +19,9 @@ function Router() {
         <Route path="/movies" element={<MoviesPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/animes/:animeId/ep/:epNumber" element={<AnimePage />} />
+        {user?.username === 'ADMIN' && (
+          <Route path="/anima-manager" element={<ManagerPage />} />
+        )}
         <Route path="*" element={<NoPath />} />
       </Route>
     </Routes>

@@ -7,7 +7,7 @@ import { useModal } from '../../contexts/ModalContext';
 function LoginForm() {
   const { startLoading, stopLoading } = useLoading();
   const { login } = useAuth();
-  const { closeModal } = useModal();
+  const { openFormModal, closeModal } = useModal();
 
   const [input, setInput] = useState({ username: '', password: '' });
 
@@ -67,12 +67,14 @@ function LoginForm() {
         </label>
       </div>
       <div className="mt-8">
-        <button className="w-full h-10 rounded-md border-2 border-anima-green py-1 px-3 text-anima-green font-medium hover:bg-anima-green hover:text-white active:bg-anima-lime">
-          Log In
-        </button>
+        <button className="button w-full font-medium">Log In</button>
       </div>
       <div className="mt-3">
-        <button className="w-full h-10 rounded-md border-2 border-anima-green py-1 px-3 text-white font-medium bg-anima-green hover:bg-anima-lime hover:text-medium-gray active:bg-anima-lime">
+        <button
+          type="button"
+          className="w-full font-medium button-outline"
+          onClick={() => openFormModal('Register')}
+        >
           Register
         </button>
       </div>

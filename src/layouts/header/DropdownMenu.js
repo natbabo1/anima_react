@@ -1,15 +1,21 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Avatar from '../../components/ui/Avatar';
 import { useAuth } from '../../contexts/AuthContext';
 
 function DropdownMenu() {
   const {
-    user: { firstName, lastName, Subscription },
+    user: { username, firstName, lastName, Subscription },
     logout
   } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  };
 
   return (
-    <div className="flex flex-col absolute left-1/2 top-full -translate-x-1/2 w-48">
+    <div className="flex flex-col absolute left-1/2 top-full -translate-x-1/2 w-48 z-50">
       <div
         className="dropdown-user-triangle mx-auto"
         style={{ zIndex: 1020 }}
@@ -31,24 +37,34 @@ function DropdownMenu() {
             </div>
           </div>
         </Link>
+        {username === 'ADMIN' ? (
+          <Link
+            className=" py-3 px-4 text-lg hover:text-white hover:bg-medium-gray"
+            to="/anima-manager"
+          >
+            <i className="fa-solid fa-photo-film"></i> Anima Manager
+          </Link>
+        ) : (
+          <>
+            <Link
+              className=" py-3 px-4 text-lg hover:text-white hover:bg-medium-gray"
+              to="/watch-later"
+            >
+              <i className="fa-regular fa-bookmark w-6"></i> Watch Later
+            </Link>
 
-        <Link
-          className=" py-3 px-4 text-lg hover:text-white hover:bg-medium-gray"
-          to="/watch-later"
-        >
-          <i className="fa-regular fa-bookmark w-6"></i> Watch Later
-        </Link>
-
-        <Link
-          className=" py-3 px-4 text-lg hover:text-white hover:bg-medium-gray"
-          to="/favorites"
-        >
-          <i className="fa-regular fa-heart w-6"></i> Favorite
-        </Link>
+            <Link
+              className=" py-3 px-4 text-lg hover:text-white hover:bg-medium-gray"
+              to="/favorites"
+            >
+              <i className="fa-regular fa-heart w-6"></i> Favorite
+            </Link>
+          </>
+        )}
 
         <button
           className="py-3 px-4 text-lg text-left hover:text-white hover:bg-medium-gray"
-          onClick={logout}
+          onClick={handleLogout}
         >
           <i className="fa-solid fa-right-from-bracket w-6"></i>Log out
         </button>

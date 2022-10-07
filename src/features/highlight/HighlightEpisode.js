@@ -15,7 +15,7 @@ function HighlightEpisode({ content }) {
       <div className="w-full h-16 relative -top-16 bg-gradient-to-t from-dark-gray via-dark-gray/60 flex flex-col justify-end text-4xl text-snow-white px-12 -mb-10">
         Episodes
       </div>
-      <div className="h-56">
+      <div className="h-64">
         <CarouselFrame
           content={
             content.length === 0

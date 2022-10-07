@@ -1,6 +1,15 @@
+import { useEffect } from 'react';
 import { useModal } from '../../contexts/ModalContext';
 function Modal({ children }) {
   const { openModal, closeModal } = useModal();
+
+  useEffect(() => {
+    if (openModal) {
+      document.body.style.overflow = 'hidden';
+    }
+
+    return () => (document.body.style.overflow = 'unset');
+  }, [openModal]);
 
   return (
     <>
@@ -17,7 +26,7 @@ function Modal({ children }) {
             <div className="relative bg-dark-gray rounded-xl shadow py-6 border border-medium-gray animate-modal">
               <div className="text-4xl font-semibold text-anima-green flex">
                 <h5 className="modal-title text-success mx-auto fs-2 mb-10">
-                  {openModal}
+                  {openModal.header}
                 </h5>
                 <button
                   type="button"
@@ -27,7 +36,7 @@ function Modal({ children }) {
                   <i className="fa-solid fa-xmark text-low-white/70 text-3xl"></i>
                 </button>
               </div>
-              <div className="w-full px-8">{children}</div>
+              <div className="w-full px-8">{openModal.body}</div>
             </div>
           </div>
         </div>
