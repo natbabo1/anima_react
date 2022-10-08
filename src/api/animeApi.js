@@ -1,6 +1,7 @@
 import axios from '../config/axios';
 
 export const getHighlight = () => axios.get('/animes/highlight');
+
 export const getAnimesBy = (category, limit = 18) => {
   if (category === 'Popular') {
     return axios.get(`/animes/popular?limit=${limit}`);
@@ -12,3 +13,5 @@ export const getAnimesBy = (category, limit = 18) => {
     return axios.get(`/animes/movies?limit=${limit}`);
   }
 };
+
+export const createAnime = (anime) => axios.post('/animes', anime);

@@ -14,11 +14,11 @@ function ManagerContainer() {
   };
 
   return (
-    <div className="w-full h-[90vh] mt-20 flex ">
+    <div className="w-full mt-20 flex ">
       <div className="w-56 ">
         <ManagerSideBar selectMenu={setSelectedMenu} />
       </div>
-      <div className="bg-black grow">{menu[selectedMenu]}</div>
+      <div className="bg-black grow pb-10">{menu[selectedMenu]}</div>
     </div>
   );
 }

@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom';
 import GenreBadge from './GenreBadge';
 
 function AnimeCard({
-  anime: { id, type, imagePath, title, Genres, Episodes }
+  anime: { id = 0, type, imagePath, title, Genres, Episodes = [] }
 }) {
   return (
     <div className="hover:scale-125 duration-200 w-[17.5rem] z-0 hover:z-50 hover:relative">
-      <Link to={`/animes/${id}/ep/1`}>
+      <Link to={id ? `/animes/${id}/ep/1` : null}>
         <div className="w-full pb-0 pt-[133%] relative overflow-hidden shadow-2xl ">
-          <div className="absolute bottom-0 right-0 pr-2 pb-2  z-0 hover:z-50">
+          <div className="absolute bottom-0 right-0 pr-2 pb-2  z-20 hover:z-50">
             <h6 className="text-lg text-low-white">
               {type === 'TV' && `Updated to EP ${Episodes.length}`}
             </h6>

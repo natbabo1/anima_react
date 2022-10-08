@@ -18,7 +18,7 @@ function HightlightMain({ highlight }) {
   return (
     <div className="w-full px-0 relative pt-[46.25%] overflow-hidden">
       <img
-        src={`${BASE_URL}${highlightImagePath}`}
+        src={`${BASE_URL}/${highlightImagePath}`}
         className="absolute top-1/2 left-0 -translate-y-1/2 w-full h-auto "
         alt={title}
       />
