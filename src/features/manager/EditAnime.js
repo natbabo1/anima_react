@@ -40,6 +40,13 @@ function EditAnime() {
     setAnimes([]);
   };
 
+  const onDelete = async () => {
+    await animeService.deleteAnime(animeToEdit.id);
+    setAnimeToEdit(null);
+    setAnimes([]);
+    toast.success('delete success');
+  };
+
   return (
     <div className="text-snow-white pt-10 pb-36`">
       <form className="flex gap-3 ml-24 mb-10" onSubmit={handleSearchSubmit}>
@@ -70,6 +77,7 @@ function EditAnime() {
         <AnimeForm
           onSubmit={onSubmit}
           onCancel={onCancel}
+          onDelete={onDelete}
           animeToEdit={{
             ...animeToEdit,
             coverImage: animeToEdit.imagePath,

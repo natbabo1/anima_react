@@ -1,3 +1,3 @@
-export default function EditEpisode() {
+export default function ManangeEpisode() {
   return <div className="text-white">EditEpisode</div>;
 }

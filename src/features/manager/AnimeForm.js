@@ -8,7 +8,7 @@ import EditRatingForm from './animeFormComponent/EditRatingForm';
 import EditStudioForm from './animeFormComponent/EditStudioForm';
 import GenreSelector from './animeFormComponent/GenreSelector';
 
-function AnimeForm({ animeToEdit, onSubmit, onCancel }) {
+function AnimeForm({ animeToEdit, onSubmit, onCancel, onDelete }) {
   const { openFormModal } = useModal();
 
   const [newAnime, setNewAnime] = useState(
@@ -337,13 +337,22 @@ function AnimeForm({ animeToEdit, onSubmit, onCancel }) {
         {animeToEdit ? 'Confirm Editing Anime' : 'Add New Anime'}
       </button>
       {animeToEdit && (
-        <button
-          type="button"
-          className="bg-medium-gray border-2 border-medium-gray  w-[90%] rounded-xl mx-auto mt-6 py-4 hover:bg-red-600 block hover:text-white hover:border-red-600 text-xl"
-          onClick={onCancel}
-        >
-          Cancel Editing
-        </button>
+        <>
+          <button
+            type="button"
+            className="bg-medium-gray border-2 border-medium-gray  w-[90%] rounded-xl mx-auto mt-6 py-4 hover:bg-red-600 block hover:text-white hover:border-red-600 text-xl"
+            onClick={onCancel}
+          >
+            Cancel Editing
+          </button>
+          <button
+            type="button"
+            onClick={onDelete}
+            className="bg-transparent border-2 border-red-800 w-[8%] rounded-xl ml-auto mt-6 py-4 hover:bg-red-600 block hover:text-white hover:border-red-600 text-xl"
+          >
+            <i className="fa-solid fa-trash-can"></i>
+          </button>
+        </>
       )}
     </form>
   );

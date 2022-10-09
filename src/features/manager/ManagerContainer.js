@@ -2,7 +2,7 @@ import { useState } from 'react';
 import ManagerSideBar from './ManagerSideBar';
 import AnimeForm from './AnimeForm';
 import EditAnime from './EditAnime';
-import EditEpisode from './EditEpisode';
+import ManangeEpisode from './ManageEpisode';
 import * as animeService from '../../api/animeApi';
 
 function ManagerContainer() {
@@ -15,7 +15,7 @@ function ManagerContainer() {
   const menu = {
     addAnime: <AnimeForm onSubmit={onSubmit} />,
     editAnime: <EditAnime />,
-    editEpisode: <EditEpisode />
+    editEpisode: <ManangeEpisode />
   };
 
   return (
