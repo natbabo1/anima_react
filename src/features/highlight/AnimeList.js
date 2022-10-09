@@ -30,7 +30,11 @@ function PopularAnime({ title }) {
           <div className="bg-dark-gray h-[33rem] mt-5">
             <CarouselFrame
               content={animes.map((item) => (
-                <AnimeCard key={item.id} anime={item} />
+                <AnimeCard
+                  key={item.id}
+                  anime={item}
+                  to={`/animes/${item.id}/ep/1`}
+                />
               ))}
               perPage={6}
             />

@@ -1,12 +1,15 @@
 import { Link } from 'react-router-dom';
 import GenreBadge from './GenreBadge';
+import { BASE_URL } from '../../../config/constant';
+import animeCardBg from '../../../assets/images/placeholder-image.png';
 
 function AnimeCard({
-  anime: { id = 0, type, imagePath, title, Genres, Episodes = [] }
+  anime: { type, imagePath, title, Genres, Episodes = [] },
+  to
 }) {
   return (
     <div className="hover:scale-125 duration-200 w-[17.5rem] z-0 hover:z-50 hover:relative">
-      <Link to={id ? `/animes/${id}/ep/1` : null}>
+      <Link to={to}>
         <div className="w-full pb-0 pt-[133%] relative overflow-hidden shadow-2xl ">
           <div className="absolute bottom-0 right-0 pr-2 pb-2  z-20 hover:z-50">
             <h6 className="text-lg text-low-white">
@@ -15,7 +18,13 @@ function AnimeCard({
           </div>
           <div className="bg-gradient-to-t from-black via-transparent w-full h-full absolute right-0 bottom-0 z-10"></div>
           <img
-            src={imagePath}
+            src={
+              imagePath
+                ? imagePath.startsWith('public')
+                  ? BASE_URL + '/' + imagePath
+                  : imagePath
+                : animeCardBg
+            }
             className="absolute w-full h-auto top-0 left-0"
             alt={title}
           />

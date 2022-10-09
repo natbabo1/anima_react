@@ -23,13 +23,18 @@ function GenreSelector({ Genres, selectGenre }) {
     fetchGenres();
   }, []);
 
+  const isChecked = (id) => {
+    const idx = Genres.findIndex((item) => item.id === id);
+    return idx !== -1;
+  };
+
   const handleOnChange = (e) => {
     const { value: id, name: genre } = e.target;
     const newGenres = [...Genres];
-    const isExist = newGenres.findIndex((item) => item.id === id);
+    const isExist = newGenres.findIndex((item) => +item.id === +id);
     if (e.target.checked) {
       if (isExist === -1) {
-        newGenres.push({ id, genre });
+        newGenres.push({ id: +id, genre });
         selectGenre(newGenres);
       }
       return;
@@ -52,6 +57,7 @@ function GenreSelector({ Genres, selectGenre }) {
                 className="mb-0 mr-3 checked:bg-anima-green focus:ring-0"
                 value={item.id}
                 name={item.genre}
+                defaultChecked={isChecked(item.id)}
                 onChange={handleOnChange}
               />
               {item.genre}

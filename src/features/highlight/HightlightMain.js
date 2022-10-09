@@ -37,7 +37,7 @@ function HightlightMain({ highlight }) {
             {synopsis.slice(0, 350) + '...'}
           </p>
           <p className="mt-10 text-xl">
-            <span className="fw-bold">Ratings:</span>{' '}
+            <span className="fw-bold">Ratings:</span>
             {`${avgReviewScore.toFixed(1)} | ${Rating.rating}`}
           </p>
           <div className="text-xl mt-1 flex items-center gap-2">
@@ -49,7 +49,7 @@ function HightlightMain({ highlight }) {
             ))}
           </div>
           <p className="text-xl">
-            <span className="fw-bold">Duration:</span> {duration / 1000 / 60}{' '}
+            <span className="fw-bold">Duration:</span> {duration}
             mins per Ep | {Episodes.length} Ep
           </p>
         </div>

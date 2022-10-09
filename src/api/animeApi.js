@@ -15,3 +15,9 @@ export const getAnimesBy = (category, limit = 18) => {
 };
 
 export const createAnime = (anime) => axios.post('/animes', anime);
+
+export const updateAnime = (anime, animeId) =>
+  axios.put(`animes/${animeId}`, anime);
+
+export const searchAnimeByTitle = (animeTitle) =>
+  axios.get(`/animes?title=${animeTitle}`);

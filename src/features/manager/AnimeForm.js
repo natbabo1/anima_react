@@ -2,31 +2,31 @@ import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { useModal } from '../../contexts/ModalContext';
 import * as miscService from '../../api/miscApi';
-import * as animeService from '../../api/animeApi';
 import AnimeCard from '../../components/ui/card/AnimeCard';
 import TypeButton from './animeFormComponent/TypeButton';
 import EditRatingForm from './animeFormComponent/EditRatingForm';
 import EditStudioForm from './animeFormComponent/EditStudioForm';
 import GenreSelector from './animeFormComponent/GenreSelector';
-import animeCardBg from '../../assets/images/animeBgCard.jpg';
 
-function AddAnime() {
+function AnimeForm({ animeToEdit, onSubmit, onCancel }) {
   const { openFormModal } = useModal();
 
-  const [newAnime, setNewAnime] = useState({
-    type: 'TV',
-    coverImage: null,
-    highlightImage: null,
-    title: '',
-    year: +new Date().getFullYear(),
-    duration: 24,
-    season: 'spring',
-    ratingId: 1,
-    studioId: 1,
-    synopsis: '',
-    Genres: [],
-    publishStatus: false
-  });
+  const [newAnime, setNewAnime] = useState(
+    animeToEdit || {
+      type: 'TV',
+      coverImage: null,
+      highlightImage: null,
+      title: '',
+      year: +new Date().getFullYear(),
+      duration: 24,
+      season: 'spring',
+      ratingId: 1,
+      studioId: 1,
+      synopsis: '',
+      Genres: [],
+      publishStatus: false
+    }
+  );
 
   const [ratings, setRatings] = useState([]);
   const [studios, setStudios] = useState([]);
@@ -83,20 +83,37 @@ function AddAnime() {
         }
         formData.append(key, newAnime[key]);
       }
-      await animeService.createAnime(formData);
-      toast.success('Add New Anime Success!');
+      await onSubmit(formData);
+      toast.success(
+        animeToEdit ? 'Edit Anime Success' : 'Add New Anime Success!'
+      );
+      setNewAnime({
+        type: 'TV',
+        coverImage: null,
+        highlightImage: null,
+        title: '',
+        year: +new Date().getFullYear(),
+        duration: 24,
+        season: 'spring',
+        ratingId: 1,
+        studioId: 1,
+        synopsis: '',
+        Genres: [],
+        publishStatus: false
+      });
     } catch (err) {
-      console.log(err.response);
       toast.error(err.response?.data.message);
     }
   };
 
   return (
     <form
-      className="text-snow-white px-32 pt-10 mb-4"
+      className="text-snow-white pt-10 mb-4 mx-20"
       onSubmit={handleOnSubmit}
     >
-      <div className="text-2xl ml-4 mb-2">New Anime</div>
+      <div className="text-2xl ml-4 mb-2">
+        {animeToEdit ? `Editing Anime Id: ${newAnime.id}` : 'New Anime'}
+      </div>
       <div className="bg-dark-gray w-full flex rounded-xl">
         <div className="w-1/3 pt-10 pb-10">
           <div className="w-fit mx-auto">
@@ -104,8 +121,10 @@ function AddAnime() {
               anime={{
                 ...newAnime,
                 imagePath: newAnime.coverImage
-                  ? URL.createObjectURL(newAnime.coverImage)
-                  : animeCardBg
+                  ? newAnime.coverImage instanceof File
+                    ? URL.createObjectURL(newAnime.coverImage)
+                    : newAnime.coverImage
+                  : null
               }}
             />
           </div>
@@ -288,6 +307,7 @@ function AddAnime() {
                 id="default-toggle"
                 className="sr-only peer"
                 onChange={handleToggleStatus}
+                checked={newAnime.publishStatus}
               />
               <div className="w-11 h-6 bg-medium-gray peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-anima-green/40 rounded-full peer peer-checked:after:translate-x-0 peer-checked:after:border-shadow-grow after:content-[''] after:absolute after:top-[3px] after:right-[2px] after:-translate-x-full after:bg-dark-gray after:border-shadow-grow after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-anima-green"></div>
             </label>
@@ -308,15 +328,25 @@ function AddAnime() {
             className="block p-2.5 mb-6 w-full text-xl text-snow-white bg-medium-gray rounded-lg focus:ring-transparent focus:border-anima-green "
             placeholder="Synopsis..."
             name="synopsis"
+            value={newAnime.synopsis}
             onChange={handleOnChange}
           ></textarea>
         </div>
       </div>
       <button className="bg-transparent border-2 border-anima-green text-anima-green w-[90%] rounded-xl block mx-auto mt-6 py-4 hover:bg-anima-green hover:text-shadow-grow text-xl">
-        Add New Anime
+        {animeToEdit ? 'Confirm Editing Anime' : 'Add New Anime'}
       </button>
+      {animeToEdit && (
+        <button
+          type="button"
+          className="bg-medium-gray border-2 border-medium-gray  w-[90%] rounded-xl mx-auto mt-6 py-4 hover:bg-red-600 block hover:text-white hover:border-red-600 text-xl"
+          onClick={onCancel}
+        >
+          Cancel Editing
+        </button>
+      )}
     </form>
   );
 }
 
-export default AddAnime;
+export default AnimeForm;
