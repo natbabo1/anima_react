@@ -21,7 +21,11 @@ function HighlightEpisode({ content }) {
             content.length === 0
               ? highlightEpisode
               : content.map((item, idx) => (
-                  <EpisodeCard key={idx} episode={item} />
+                  <EpisodeCard
+                    key={idx}
+                    episode={item}
+                    to={`/animes/${item.animeId}/ep/${item.number}`}
+                  />
                 ))
           }
           perPage={4}

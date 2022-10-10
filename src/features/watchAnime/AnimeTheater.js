@@ -46,7 +46,7 @@ function AnimeTheater() {
     if (episodeList) {
       const thisEp = episodeList.find((item) => +item.number === +epNumber);
       if (thisEp !== -1) {
-        return setCurrentEpSrc(BASE_URL + thisEp.videoPath);
+        return setCurrentEpSrc(BASE_URL + '/' + thisEp.videoPath);
       }
       return setCurrentEpSrc(null);
     }
@@ -65,7 +65,11 @@ function AnimeTheater() {
             !episodeList || episodeList.length === 0
               ? initialEpisodes
               : episodeList.map((item, idx) => (
-                  <EpisodeCard key={idx} episode={item} />
+                  <EpisodeCard
+                    key={idx}
+                    episode={item}
+                    to={`/animes/${item.animeId}/ep/${item.number}`}
+                  />
                 ))
           }
           perPage={4}

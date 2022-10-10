@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { useModal } from '../../contexts/ModalContext';
+import { useLoading } from '../../contexts/LoadingContext';
 import * as miscService from '../../api/miscApi';
 import AnimeCard from '../../components/ui/card/AnimeCard';
 import TypeButton from './animeFormComponent/TypeButton';
@@ -10,6 +11,7 @@ import GenreSelector from './animeFormComponent/GenreSelector';
 
 function AnimeForm({ animeToEdit, onSubmit, onCancel, onDelete }) {
   const { openFormModal } = useModal();
+  const { startLoading, stopLoading } = useLoading();
 
   const [newAnime, setNewAnime] = useState(
     animeToEdit || {
@@ -74,6 +76,7 @@ function AnimeForm({ animeToEdit, onSubmit, onCancel, onDelete }) {
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
+    startLoading();
     try {
       const formData = new FormData();
       for (const key in newAnime) {
@@ -85,7 +88,7 @@ function AnimeForm({ animeToEdit, onSubmit, onCancel, onDelete }) {
       }
       await onSubmit(formData);
       toast.success(
-        animeToEdit ? 'Edit Anime Success' : 'Add New Anime Success!'
+        animeToEdit ? 'Edit Anime Success' : 'Add New Anime Success'
       );
       setNewAnime({
         type: 'TV',
@@ -103,6 +106,8 @@ function AnimeForm({ animeToEdit, onSubmit, onCancel, onDelete }) {
       });
     } catch (err) {
       toast.error(err.response?.data.message);
+    } finally {
+      stopLoading();
     }
   };
 

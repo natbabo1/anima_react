@@ -8,9 +8,7 @@ import * as animeService from '../../api/animeApi';
 function ManagerContainer() {
   const [selectedMenu, setSelectedMenu] = useState('addAnime');
 
-  const onSubmit = async (formData) => {
-    animeService.createAnime(formData);
-  };
+  const onSubmit = async (formData) => animeService.createAnime(formData);
 
   const menu = {
     addAnime: <AnimeForm onSubmit={onSubmit} />,
