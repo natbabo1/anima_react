@@ -1,8 +1,8 @@
-import { createContext, useContext, useEffect, useState } from 'react';
-import { toast } from 'react-toastify';
-import { useLoading } from './LoadingContext';
-import * as authService from '../api/authApi';
-import { addToken, getToken, removeToken } from '../utilities/localStorage';
+import { createContext, useContext, useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import { useLoading } from "./LoadingContext";
+import * as authService from "../api/authApi";
+import { addToken, getToken, removeToken } from "../utilities/localStorage";
 
 const AuthContext = createContext();
 
@@ -53,6 +53,7 @@ function AuthContextProvider({ children }) {
   return (
     <AuthContext.Provider value={{ user, login, logout, register }}>
       {children}
+      {console.log(children.length)}
     </AuthContext.Provider>
   );
 }

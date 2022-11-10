@@ -21,13 +21,13 @@ function PopularAnime({ title }) {
   }, [title]);
 
   return (
-    <>
+    <div className="overflow-x-hidden">
       {animes && (
         <>
           <div className="w-full h-16 bg-dark-gray flex flex-col justify-end text-4xl text-snow-white px-12 mt-4">
             {title}
           </div>
-          <div className="bg-dark-gray h-[33rem] mt-5">
+          <div className="bg-dark-gray h-[36rem] mt-5 ">
             <CarouselFrame
               content={animes.map((item) => (
                 <AnimeCard
@@ -41,7 +41,7 @@ function PopularAnime({ title }) {
           </div>
         </>
       )}
-    </>
+    </div>
   );
 }
 

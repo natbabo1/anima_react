@@ -1,5 +1,7 @@
+import ThisSeason from '../features/ThisSeason';
+
 function ThisSeasonPage() {
-  return <h1 className="fs-1">This is ThisSeasonpage</h1>;
+  return <ThisSeason />;
 }
 
 export default ThisSeasonPage;

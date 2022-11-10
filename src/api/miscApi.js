@@ -24,3 +24,5 @@ export const updateStudio = (studioId, studio) =>
   axios.patch(`/manage/misc/studios/${studioId}`, { name: studio });
 export const deleteStudio = (studioId) =>
   axios.delete(`/manage/misc/studios/${studioId}`);
+
+export const getSeason = () => axios.get(`/misc/season`);

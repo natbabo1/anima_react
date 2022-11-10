@@ -1,5 +1,7 @@
+import Movies from '../features/Movies';
+
 function MoviesPage() {
-  return <h1 className="fs-1">This is Moviespage</h1>;
+  return <Movies />;
 }
 
 export default MoviesPage;

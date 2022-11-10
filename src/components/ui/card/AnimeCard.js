@@ -8,7 +8,7 @@ function AnimeCard({
   to
 }) {
   return (
-    <div className="hover:scale-125 duration-200 w-[17.5rem] z-0 hover:z-50 hover:relative">
+    <div className="hover:scale-125 duration-200 w-[17.5rem] z-40 hover:z-50 hover:relative">
       <Link to={to}>
         <div className="w-full pb-0 pt-[133%] relative overflow-hidden shadow-2xl ">
           <div className="absolute bottom-0 right-0 pr-2 pb-2  z-20 hover:z-50">
