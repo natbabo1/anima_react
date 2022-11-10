@@ -1,6 +1,6 @@
-import { Link, useNavigate } from 'react-router-dom';
-import Avatar from '../../components/ui/Avatar';
-import { useAuth } from '../../contexts/AuthContext';
+import { Link, useNavigate } from "react-router-dom";
+import Avatar from "../../components/ui/Avatar";
+import { useAuth } from "../../contexts/AuthContext";
 
 function DropdownMenu() {
   const {
@@ -11,16 +11,16 @@ function DropdownMenu() {
 
   const handleLogout = () => {
     logout();
-    navigate('/');
+    navigate("/");
   };
 
   return (
-    <div className="flex flex-col absolute left-1/2 top-full -translate-x-1/2 w-48 z-50">
+    <div className="flex flex-col absolute right-1/4 top-full -translate-x-1/2 w-48 z-50 align-top">
       <div
-        className="dropdown-user-triangle mx-auto"
+        className="dropdown-user-triangle ml-auto translate-x-[5.5rem]"
         style={{ zIndex: 1020 }}
       ></div>
-      <div className="flex flex-col bg-dark-gray pt-0 px-0 border border-shadow-grow rounded-xl">
+      <div className="flex flex-col bg-dark-gray pt-0 px-0 border border-shadow-grow rounded-xl w-72">
         <Link
           className="py-3 px-2 bg-gradient-to-b from-anima-green rounded-t-md"
           to="/profile"
@@ -31,13 +31,13 @@ function DropdownMenu() {
               {firstName} {lastName}
               <small className="block">
                 {Subscription
-                  ? `Your ${Subscription.Tier.name} subsription will expire after ${Subscription.endDate}`
-                  : 'No subscription'}
+                  ? `${Subscription.Tier.name}, Expire ${Subscription.endDate}`
+                  : "No subscription"}
               </small>
             </div>
           </div>
         </Link>
-        {username === 'ADMIN' ? (
+        {username === "ADMIN" ? (
           <Link
             className=" py-3 px-4 text-lg hover:text-white hover:bg-medium-gray"
             to="/anima-manager"

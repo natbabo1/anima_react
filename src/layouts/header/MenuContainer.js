@@ -1,9 +1,13 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useModal } from "../../contexts/ModalContext";
+import SubscriptionMenu from "../../features/subscription/SubscriptionMenu";
 import MenuItem from "./MenuItem";
 function MenuContainer() {
   const { pathname } = useLocation();
   const navigate = useNavigate();
+
+  const { openFormModal } = useModal();
 
   const searchBar = useRef();
 
@@ -18,7 +22,17 @@ function MenuContainer() {
         <MenuItem menu="Home" to="/" />
         <MenuItem menu="This Season" to="/this-season" />
         <MenuItem menu="Movies" to="/movies" />
-        <MenuItem menu="Pricing" to="/pricing" />
+        <div
+          className="text-low-white border-anima-green font-medium  hover:text-snow-white cursor-pointer"
+          onClick={() =>
+            openFormModal({
+              header: "Subscription",
+              body: <SubscriptionMenu />
+            })
+          }
+        >
+          Subscription
+        </div>
       </div>
       {pathname.startsWith("/search") ? (
         ""
