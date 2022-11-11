@@ -1,3 +1,2 @@
-export const ANIMA_TOKEN = 'ANIMA_TOKEN';
-
-export const BASE_URL = 'http://localhost:2525';
+export const ANIMA_TOKEN = "ANIMA_TOKEN";
+export const VPASS_TOKEN = "VPASS_TOKEN";

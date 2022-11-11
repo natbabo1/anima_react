@@ -1,7 +1,11 @@
-import axios from 'axios';
-import { getToken, removeToken } from '../utilities/localStorage';
+import axios from "axios";
+import {
+  getToken,
+  removeToken,
+  removeVpassToken
+} from "../utilities/localStorage";
 
-axios.defaults.baseURL = 'http://localhost:2525';
+axios.defaults.baseURL = "http://localhost:2525";
 
 axios.interceptors.request.use(
   (config) => {
@@ -17,10 +21,12 @@ axios.interceptors.request.use(
 axios.interceptors.response.use(
   (res) => res,
   (err) => {
-    if (err.response.status === 401) {
+    if (err.response?.status === 401) {
       removeToken();
-      window.location.replace('/');
+      removeVpassToken();
+      // window.location.replace("/");
     }
+
     return Promise.reject(err);
   }
 );

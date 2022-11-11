@@ -2,7 +2,12 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useLoading } from "./LoadingContext";
 import * as authService from "../api/authApi";
-import { addToken, getToken, removeToken } from "../utilities/localStorage";
+import {
+  addToken,
+  getToken,
+  removeToken,
+  removeVpassToken
+} from "../utilities/localStorage";
 import { useCallback } from "react";
 
 const AuthContext = createContext();
@@ -48,6 +53,7 @@ function AuthContextProvider({ children }) {
 
   const logout = () => {
     removeToken();
+    removeVpassToken();
     setUser(null);
   };
 

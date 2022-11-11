@@ -1,7 +1,7 @@
-import { BASE_URL } from '../../config/constant';
-import HighlightPlayButton from '../../components/ui/HighlightPlayButton';
-import HighlightGenreBadge from '../../components/HighlightGenreBadge';
-import { Link } from 'react-router-dom';
+import { BASE_URL } from "../../config/env";
+import HighlightPlayButton from "../../components/ui/HighlightPlayButton";
+import HighlightGenreBadge from "../../components/HighlightGenreBadge";
+import { Link } from "react-router-dom";
 
 function HightlightMain({ highlight }) {
   const {
@@ -34,7 +34,7 @@ function HightlightMain({ highlight }) {
         <div className="w-1/2 pl-14 text-snow-white flex flex-col justify-center">
           <div className="text-6xl leading-[5rem] w-4/5">{title}</div>
           <p className="text-2xl mt-10 w-4/5 whitespace-normal ">
-            {synopsis.slice(0, 350) + '...'}
+            {synopsis.slice(0, 350) + "..."}
           </p>
           <p className="mt-10 text-xl">
             <span className="fw-bold">Ratings:</span>
@@ -43,7 +43,7 @@ function HightlightMain({ highlight }) {
           <div className="text-xl mt-1 flex items-center gap-2">
             <span className="block mr-3">Genre:</span>
             {Genres.map((item, idx) => (
-              <HighlightGenreBadge key={'mainBadge' + idx}>
+              <HighlightGenreBadge key={"mainBadge" + idx}>
                 {item.genre}
               </HighlightGenreBadge>
             ))}

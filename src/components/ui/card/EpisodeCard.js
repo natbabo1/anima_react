@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
-import { BASE_URL } from '../../../config/constant';
-import episodeBg from '../../../assets/images/placeholder-image.png';
+import { Link } from "react-router-dom";
+import { BASE_URL } from "../../../config/env";
+import episodeBg from "../../../assets/images/placeholder-image.png";
 
 function EpisodCard({ episode, to }) {
   return (
@@ -25,7 +25,7 @@ function EpisodCard({ episode, to }) {
           <img
             src={
               episode.imagePath
-                ? episode.imagePath.startsWith('public')
+                ? episode.imagePath.startsWith("public")
                   ? `${BASE_URL}/${episode.imagePath}`
                   : episode.imagePath
                 : episodeBg
